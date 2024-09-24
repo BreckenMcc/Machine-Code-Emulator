@@ -25,9 +25,9 @@ void Hex::printHex(){
     cout << "0x" << hexValue;
 }
 
-int Hex::hexToDecimal(){
+uint32_t Hex::hexToDecimal(){
     int length = hexValue.length();
-    int decimal = 0;
+    uint32_t decimal = 0;
     int power = 1;
     
     for(int i = length - 1; i >= 0; i--) {

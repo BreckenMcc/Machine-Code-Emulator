@@ -1,8 +1,12 @@
-#include "hex.h"
+#include "operation.h"
 
 int main(){
-    Hex test("FFFF");
-   cout << test.hexToDecimal() << endl;
+
+    Hex one("AF47");
+    Hex two("1234");
+    string add = "ADD";
+    Operation operationOne(add, one, two);
+    operationOne.compute(true);
 
     return 0;
 }

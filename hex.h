@@ -14,7 +14,8 @@ class Hex{
     string getHex();
 
     string formatHex();
+    
     void printHex();
-    int hexToDecimal();
+    uint32_t hexToDecimal();
 };
 #endif

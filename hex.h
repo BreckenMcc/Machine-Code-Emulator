@@ -1,6 +1,8 @@
 #ifndef HEX_H
 #define HEX_H
-#include "helpers.h"
+#include <iostream>
+#include <stdint.h>
+using namespace std;
 
 class Hex{
     string hexValue;
@@ -16,6 +18,10 @@ class Hex{
     string formatHex();
     
     void printHex();
+
+    char digitToHex(int i);
+    void decimalToHex(uint32_t);
+    int digitToDecimal(char c);
     uint32_t hexToDecimal();
 };
 #endif

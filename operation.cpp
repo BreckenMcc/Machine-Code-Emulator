@@ -35,12 +35,12 @@ void Operation::setHexTwo(Hex h2){
 }
 
 Hex Operation::compute(bool printResults){
-    Hex output("00000000");
+    Hex output;
+    
     if(logic == "ADD"){
         uint32_t hexOneDecimal = hexOne.hexToDecimal();
         uint32_t hexTwoDecimal = hexTwo.hexToDecimal();
-        string total = decimalToHex(hexOneDecimal + hexTwoDecimal);
-        output.setHex(total);
+        output.decimalToHex(hexOneDecimal + hexTwoDecimal);
 
         if(printResults){
             cout << "ADD" << centerHex(hexOne.getHex()) << centerHex(hexTwo.getHex()) << ": " << output.formatHex() << endl;

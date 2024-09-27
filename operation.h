@@ -2,6 +2,7 @@
 #define OPERATION_H
 
 #include "hex.h"
+#include "helpers.h"
 
 class Operation{
     string logic;

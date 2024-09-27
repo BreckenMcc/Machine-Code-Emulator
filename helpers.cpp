@@ -21,3 +21,12 @@ bool detectOverflow(uint32_t a, uint32_t b){
         return false;
     }
 }
+void cleanString(string &str){
+    string temp;
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] != '0' && str[i] != 'x' && str[i] != ' '){
+            temp += str[i];
+        }
+    }
+    str = temp;
+}

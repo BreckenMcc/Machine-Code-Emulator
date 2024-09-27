@@ -15,14 +15,18 @@ int main(int argc, char* argv[]){
         string operation, hexOne, hexTwo;
 
         Hex temp;
-        getline(fin,first, ',');
-        getline(fin, last, ',');
-        getline(fin, username, ',');
-        getline(fin, password, ',');
+        getline(fin, operation, '0');
+        cleanString(operation);
+        getline(fin, hexOne, '0');
+        cleanString(hexOne);
+        getline(fin, hexTwo);
+        cleanString(hexTwo);
 
-        getline(fin, stylist, ',');
-        getline(fin, appointments);
+        Operation op(operation, hexOne, hexTwo);
+        op.compute("true");
     }
 
     fin.close();
+
+    return 0;
 }

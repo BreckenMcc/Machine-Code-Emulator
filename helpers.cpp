@@ -1,5 +1,9 @@
 #include "helpers.h"
 
+void readInputFile(Operation* inputs){
+
+}
+
 int digitToDecimal(char c){
     if(c >= 'a' && c <= 'f'){
         c -= 32;

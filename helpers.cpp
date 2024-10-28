@@ -12,15 +12,6 @@ string centerHex(string in){
 
     return out;
 }
-bool detectOverflow(uint32_t a, uint32_t b){
-    uint32_t total = a + b;
-
-    if(total < a || total < b){
-        return true;
-    }else{
-        return false;
-    }
-}
 void cleanString(string &str){
     string temp;
     for(int i = 0; i < str.length(); i++){

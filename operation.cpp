@@ -1,59 +1,64 @@
 #include "operation.h"
 
 Operation::Operation(){
-    logic = "NULL";
+
 }
-Operation::Operation(string l, Hex h1, Hex h2){
-    logic = l;
+Operation::Operation(Hex h1, Hex h2){
     hexOne = h1;
     hexTwo = h2;
 }
+Operation::Operation(Hex h1, Hex h2, Hex h3){
+    hexOne = h1;
+    hexTwo = h2;
+    hexThree = h3;
+}
 Operation::Operation(const Operation& rhs){
-    logic = rhs.logic;
     hexOne = rhs.hexOne;
     hexTwo = rhs.hexTwo;
+    hexThree = rhs.hexThree;
 }
 
-string Operation::getLogic(){
-    return logic;
-}
 Hex Operation::getHexOne(){
     return hexOne;
 }
 Hex Operation::getHexTwo(){
     return hexTwo;
 }
-
-void Operation::setLogic(string l){
-    logic = l;
+Hex Operation::getHexThree(){
+    return hexThree;
 }
+
 void Operation::setHexOne(Hex h1){
     hexOne = h1;
 }
 void Operation::setHexTwo(Hex h2){
     hexTwo = h2;
 }
+void Operation::setHexThree(Hex h3){
+    hexThree = h3;
+}
 
-Hex Operation::compute(bool printResults){
-    Hex output;
-    
-    if(logic == "ADD"){
-        uint32_t hexOneDecimal = hexOne.hexToDecimal();
-        uint32_t hexTwoDecimal = hexTwo.hexToDecimal();
-        output.decimalToHex(hexOneDecimal + hexTwoDecimal);
+bool detectOverflow(uint32_t a, uint32_t b){
+    uint32_t total = a + b;
 
-        if(printResults){
-            cout << "ADD" << centerHex(hexOne.getHex()) << centerHex(hexTwo.getHex()) << ": " << output.formatHex() << endl;
-            cout << "Overflow: ";
-            if(detectOverflow(hexOneDecimal, hexTwoDecimal)){
-                cout << " yes" << endl;
-            }else{
-                cout << " no" << endl;
-            }
-        }
-
+    if(total < a || total < b){
+        return true;
     }else{
-        cout << "The logic operation {" << logic << "} is not supported." << endl;
+        return false;
     }
+}
+
+Hex Operation::add(){
+    Hex output;
+    uint32_t hexOneDecimal = hexOne.hexToDecimal();
+    uint32_t hexTwoDecimal = hexTwo.hexToDecimal();
+    output.decimalToHex(hexOneDecimal + hexTwoDecimal);
+
+    if(detectOverflow(hexOneDecimal, hexTwoDecimal)){
+        cout << " yes" << endl;
+    }else{
+        cout << " no" << endl;
+    }
+
     return output;
 }

@@ -1,5 +1,4 @@
-#include "hex.h"
+#include "operation.h"
 
 string centerHex(string);
-bool detectOverflow(uint32_t, uint32_t);
-void cleanString(string&);
+string cleanString(string);

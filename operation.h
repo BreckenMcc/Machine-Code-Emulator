@@ -2,24 +2,25 @@
 #define OPERATION_H
 
 #include "hex.h"
-#include "helpers.h"
 
 class Operation{
-    string logic;
-    Hex hexOne, hexTwo;
+    Hex hexOne, hexTwo, hexThree;
 public:
     Operation();
-    Operation(string, Hex, Hex);
+    Operation(Hex, Hex);
+    Operation(Hex, Hex, Hex);
     Operation(const Operation&);
 
-    string getLogic();
     Hex getHexOne();
     Hex getHexTwo();
+    Hex getHexThree();
 
-    void setLogic(string);
     void setHexOne(Hex);
     void setHexTwo(Hex);
+    void setHexThree(Hex);
 
-    Hex compute(bool);
+    bool detectOverflow(uint32_t, uint32_t);
+
+    Hex add();
 };
 #endif

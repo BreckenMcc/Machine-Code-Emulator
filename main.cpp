@@ -1,6 +1,5 @@
-#include "operation.h"
+#include "helpers.h"
 #include <fstream>
-#define MAX_SIZE 500
 
 int main(int argc, char* argv[]){
     if(argc != 2){
@@ -9,9 +8,9 @@ int main(int argc, char* argv[]){
     }
     string inFile = argv[1];   
     ifstream fin(inFile);
-    Operation ops[MAX_SIZE];
 
     while(!fin.eof()){
+        int counter;
         string operation, hexOne, hexTwo;
 
         Hex temp;
@@ -22,8 +21,13 @@ int main(int argc, char* argv[]){
         getline(fin, hexTwo);
         cleanString(hexTwo);
 
-        Operation op(operation, hexOne, hexTwo);
-        op.compute("true");
+        if(operation == "ADD"){
+            Operation op(hexOne, hexTwo);
+            temp = op.add();
+
+            cout << "ADD" << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << output.formatHex() << endl;
+            cout << "Overflow: ";
+        }
     }
 
     fin.close();

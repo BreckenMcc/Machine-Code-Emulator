@@ -28,34 +28,6 @@ string centerHex(string in){
 
     return out;
 }
-<<<<<<< HEAD
-=======
-
-/*
-* Method Name: detectOverflow 
-* 
-* Return type: bool
-* 
-* Parameters: Decimal number one (uint32_t), Decimal number two (uint32_t)
-* 
-* Pre-Condition: Two unsigned ints that will be added are passed to check if their addition will result in an overflow
-* 
-* Post-Condition: True is returned if there is an overflow, false is returned if not
-*
-* Description: This function checks if there is an overflow by checking if the output of the addition is smaller 
-* than either of the inputs
-*
-* Methods called: None
-*/
-bool detectOverflow(uint32_t a, uint32_t b){
-    uint32_t total = a + b;
-
-    if(total < a || total < b){
-        return true;
-    }else{
-        return false;
-    }
-}
 
 /*
 * Method Name: cleanString 
@@ -73,7 +45,6 @@ bool detectOverflow(uint32_t a, uint32_t b){
 *
 * Methods called: None
 */
->>>>>>> 5e134c146c140da8c87f86c23c47e92e78c17c15
 void cleanString(string &str){
     string temp;
     for(int i = 0; i < str.length(); i++){

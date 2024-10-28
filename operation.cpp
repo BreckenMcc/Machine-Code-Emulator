@@ -38,7 +38,7 @@ void Operation::setHexThree(Hex h3){
     hexThree = h3;
 }
 
-bool detectOverflow(uint32_t a, uint32_t b){
+bool Operation::detectOverflow(uint32_t a, uint32_t b){
     uint32_t total = a + b;
 
     if(total < a || total < b){
@@ -53,12 +53,6 @@ Hex Operation::add(){
     uint32_t hexOneDecimal = hexOne.hexToDecimal();
     uint32_t hexTwoDecimal = hexTwo.hexToDecimal();
     output.decimalToHex(hexOneDecimal + hexTwoDecimal);
-
-    if(detectOverflow(hexOneDecimal, hexTwoDecimal)){
-        cout << " yes" << endl;
-    }else{
-        cout << " no" << endl;
-    }
 
     return output;
 }

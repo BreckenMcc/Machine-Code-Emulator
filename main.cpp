@@ -25,8 +25,13 @@ int main(int argc, char* argv[]){
             Operation op(hexOne, hexTwo);
             temp = op.add();
 
-            cout << "ADD" << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << output.formatHex() << endl;
+            cout << "ADD" << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
             cout << "Overflow: ";
+            if(op.detectOverflow(op.getHexOne().hexToDecimal(), op.getHexTwo().hexToDecimal())){
+                cout << " yes" << endl;
+            }else{
+                cout << " no" << endl;
+            }
         }
     }
 

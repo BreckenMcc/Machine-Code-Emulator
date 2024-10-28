@@ -1,4 +1,4 @@
 #include "operation.h"
 
 string centerHex(string);
-string cleanString(string);
+void cleanString(string&);

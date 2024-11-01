@@ -16,12 +16,18 @@ class Hex{
     string getHex();
 
     string formatHex();
-    
     void printHex();
 
     char digitToHex(int i);
     void decimalToHex(uint32_t);
+
     int digitToDecimal(char c);
     uint32_t hexToDecimal();
+
+    string digitToBinary(char c);
+    string hexToBinary();
+    uint32_t binaryToInt(string);
+    void binaryToHex(string);
+    
 };
 #endif

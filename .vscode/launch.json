@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Debug",
             "program": "${workspaceFolder}/hexAdder",
-            "args": ["Programming-Project-1.txt"],
+            "args": ["Programming-Project-2.txt"],
             "cwd": "${workspaceFolder}"
         }
     ]

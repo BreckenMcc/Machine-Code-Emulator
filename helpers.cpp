@@ -48,7 +48,7 @@ string centerHex(string in){
 void cleanString(string &str){
     string temp;
     for(int i = 0; i < str.length(); i++){
-        if(str[i] != '0' && str[i] != 'x' && str[i] != ' '){
+        if(str[i] != '0' && str[i] != 'x' && str[i] != ' ' && str[i] != '\n' && str[i] != '\t'){
             temp += str[i];
         }
     }

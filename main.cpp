@@ -17,34 +17,55 @@ int main(int argc, char* argv[]){
         getline(fin, operation, '0');
         cleanString(operation);
         if(operation == "NOT" || operation == "NOTS"){
-            getline(fin, hexOne, '0');
+            getline(fin, hexOne, ' ');
             cleanString(hexOne);
 
             Operation op(hexOne);
             temp = op.NOT();
 
-            cout << "NOT" << centerHex(op.getHexOne().getHex()) << ": " << temp.formatHex() << endl;
+            if(operation == "NOT"){
+                cout << "NOT";
+            }else{
+                cout << "NOTS";
+            }
+            cout << centerHex(op.getHexOne().getHex()) << ": " << temp.formatHex() << endl;
         }else if(operation == "ASR" || operation == "ASRS" || operation == "LSR" || operation == "LSRS" || operation == "LSL" || operation == "LSLS"){
-            getline(fin, hexOne, '0');
+            getline(fin, hexOne, ' ');
             cleanString(hexOne);
             getline(fin, tempStr);
+            cleanString(tempStr);
             shiftNum = stoi(tempStr);
 
             if(operation == "ASR" || operation == "ASRS"){
                 Operation op(hexOne);
                 temp = op.ASR(shiftNum);
 
-                cout << "ASR" << centerHex(op.getHexOne().getHex()) << shiftNum << ": " << temp.formatHex() << endl;
+                if(operation == "ASR"){
+                    cout << "ASR";
+                }else{
+                    cout << "ASRS";
+                }
+                cout << centerHex(op.getHexOne().getHex()) << " " << shiftNum << ": " << temp.formatHex() << endl;
             }else if(operation == "LSR" || operation == "LSRS"){
                 Operation op(hexOne);
                 temp = op.LSR(shiftNum);
 
-                cout << "LSR" << centerHex(op.getHexOne().getHex()) << shiftNum << ": " << temp.formatHex() << endl;
+                if(operation == "LSR"){
+                    cout << "LSR";
+                }else{
+                    cout << "LSRS";
+                }
+                cout << centerHex(op.getHexOne().getHex()) << " " << shiftNum << ": " << temp.formatHex() << endl;
             }else{
                 Operation op(hexOne);
                 temp = op.LSL(shiftNum);
 
-                cout << "LSL" << centerHex(op.getHexOne().getHex()) << shiftNum << ": " << temp.formatHex() << endl;
+                if(operation == "LSL"){
+                    cout << "LSL";
+                }else{
+                    cout << "LSLS";
+                }
+                cout << centerHex(op.getHexOne().getHex()) << " " << shiftNum << ": " << temp.formatHex() << endl;
             }
         }else{
             getline(fin, hexOne, '0');
@@ -52,31 +73,56 @@ int main(int argc, char* argv[]){
             getline(fin, hexTwo);
             cleanString(hexTwo);
 
-            if(operation == "ADD"){
+            if(operation == "ADD" || operation == "ADDS"){
                 Operation op(hexOne, hexTwo);
                 temp = op.ADD();
 
-                cout << "ADD" << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
+                if(operation == "ADD"){
+                    cout << "ADD";
+                }else{
+                    cout << "ADDS";
+                }
+                cout << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
             }else if(operation == "AND" || operation == "ANDS"){
                 Operation op(hexOne, hexTwo);
                 temp = op.AND();
 
-                cout << "AND" << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
+                if(operation == "AND"){
+                    cout << "AND";
+                }else{
+                    cout << "ANDS";
+                }
+                cout << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
             }else if(operation == "ORR" || operation == "ORRS"){
                 Operation op(hexOne, hexTwo);
                 temp = op.ORR();
 
-                cout << "ORR" << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
+                if(operation == "ORR"){
+                    cout << "ORR";
+                }else{
+                    cout << "ORRS";
+                }
+                cout << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
             }else if(operation == "SUB" || operation == "SUBS"){
                 Operation op(hexOne, hexTwo);
                 temp = op.SUB();
 
-                cout << "SUB" << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
+                if(operation == "SUB"){
+                    cout << "SUB";
+                }else{
+                    cout << "SUBS";
+                }
+                cout << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
             }else if(operation == "XOR" || operation == "XORS"){
                 Operation op(hexOne, hexTwo);
                 temp = op.XOR();
 
-                cout << "XOR" << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
+                if(operation == "XOR"){
+                    cout << "XOR";
+                }else{
+                    cout << "XORS";
+                }
+                cout << centerHex(op.getHexOne().getHex()) << centerHex(op.getHexTwo().getHex()) << ": " << temp.formatHex() << endl;
             }else{
                 cout << "err" << endl;
             }
